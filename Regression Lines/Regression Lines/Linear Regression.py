@@ -3,13 +3,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
-#https://rstudio-pubs-static.s3.amazonaws.com/526376_b1f1e712e9904023bab3a8d37ceb4e0c.html
-#https://medium.com/analytics-vidhya/simple-linear-regression-with-example-using-numpy-e7b984f0d15e
-
-
-
-
 def cost_function(x,y,theta):
     
     a = 1/(2*m)
@@ -33,14 +26,10 @@ def gradient(x,y,theta):
 
     return theta, J_history
 
-
-
-
 path = "Data\\HappinessAlcoholConsumption_dataset.csv"
 df= pd.read_csv(path)
 
 # initial data analysis (IDA)
-
 print(df.head())
 
 shape = df.shape
@@ -51,8 +40,8 @@ print(dataTypeSeries)
 
 
 # look for any notable trends between all pairs of variables
-#sns.pairplot(df)
-#plt.show()
+sns.pairplot(df)
+plt.show()
 
 # filter only the required variables
 A = df[['Beer_PerCapita','HappinessScore']]
@@ -103,17 +92,3 @@ plt.show()
 # Let’s predict for new input value
 predict1 = [1,(164/np.max(matrix[:,0]))] @ theta #normalising the input value, 1 is for intercept term so not need to normalise
 print(predict1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
